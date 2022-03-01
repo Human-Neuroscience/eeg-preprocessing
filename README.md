@@ -17,7 +17,7 @@ This repository contains a set of preprocessing routines for EEG signals.
 ### Independent Component Analysis:
 
  - Compute ICA.
- - Delete bad channels.
+ - Delete bad components.
 
 ### Rest of the preprocessing pipeline:
 

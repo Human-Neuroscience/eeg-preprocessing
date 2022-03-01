@@ -25,7 +25,7 @@
 % * Independent Component Analysis:
 %
 %   -  5. Compute ICA.
-%   -  6. Delete bad channels.
+%   -  6. Delete bad components.
 %
 % * Rest of the preprocessing pipeline:
 %
