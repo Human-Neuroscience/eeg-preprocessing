@@ -19,9 +19,9 @@ cfg.datapath = '/Volumes/DATA/eeg-pipelines';
 
 cfg.subjects = {
      'sub-001';
-%     'sub-002';
-%     'sub-003';
-%      'sub-004';
+     'sub-002';
+     'sub-003';
+%     'sub-004';
 %      'sub-005';
 %      'sub-006';
 %      'sub-007';

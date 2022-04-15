@@ -41,6 +41,7 @@ if cfg.trialrej.abspect.flag
         'freqlimits',cfg.trialrej.abspect.freqlimits,...
         'eegplotreject',cfg.trialrej.abspect.eegplotreject);
     
+    out.ab_spec_idxs = ab_spec_idxs;
     out.nrej_ab_spec = length(ab_spec_idxs);
     out.total_rejected = out.total_rejected + length(ab_spec_idxs);
     
@@ -51,12 +52,14 @@ end
 % Improbable data:
 if cfg.trialrej.impdata.flag
     fprintf('\n<strong> > Computing trial rejection...</strong>\n\n');
-    [data,~,~,out.nrej_improbable_data] = pop_jointprob(data,...
+    [data,~,~,out.nrej_improbable_data,~,imp_data_idxs] = pop_jointprob_idxs(...
+        data,...
         cfg.trialrej.type,...
         channels,...
         cfg.trialrej.impdata.loclim,...
         cfg.trialrej.impdata.globlim,1,1,1);
     
+    out.imp_data_idxs = imp_data_idxs;
     out.total_rejected = out.total_rejected + out.nrej_improbable_data;
 end
 
@@ -70,6 +73,7 @@ if cfg.trialrej.extrval.flag
         cfg.trialrej.extrval.uplim,...
         data.xmin,data.xmax,1,1);
     
+    out.ext_values_idxs = ext_values_idxs;
     out.nrej_ext_values = length(ext_values_idxs);
     out.total_rejected = out.total_rejected + length(ext_values_idxs);
 end
