@@ -12,7 +12,7 @@ fprintf(['\n<strong> > Loading subject: ' subject.id '</strong>\n\n']);
 
 % Directory to load data:
 load_dir = [cfg.datapath filesep 'derivatives' filesep ...
-    cfg.ica.sdir filesep];
+    cfg.badcomponents.sdir filesep];
 files = dir([load_dir subject.id '*.set']);
 file_name = files(1).name;
 
