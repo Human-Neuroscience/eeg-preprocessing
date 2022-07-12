@@ -292,4 +292,3 @@ cfg.conditions.sdir = '09-conditions';  % Destination folder.
 
 cfg.rename = true;          % Rename events.
 cfg.saveformat = 'set';     % Outpud data format: 'mat'-'set'-'both'
-cfg.importchanloc = true;   % Import external channel locations.

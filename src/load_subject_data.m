@@ -38,19 +38,6 @@ else
     
 end
 
-%% Import location
-
-if cfg.importchanloc
-    
-    fprintf('\n<strong> > Importing channel locations...</strong>\n\n');
-    
-    chanlocs = readtable('chanlocs_ced.txt');
-    tableloc = struct2table(data.chanlocs);
-    tableloc{:,3:10} = num2cell(chanlocs{:,4:11});
-    data.chanlocs = table2struct(tableloc);
-    data = pop_select(data, 'nochannel', [30]);
-end
-
 %% Add subject information to data structure:
 
 [~,file,~] = fileparts(file(1).name);
