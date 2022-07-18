@@ -24,8 +24,8 @@ if cfg.ica.flag
     % Exclude bad channels:
     total_channels = (1 : length(data.chanlocs));
     subject_idx = str2double(subject.id(end-2:end));
-    badchannels = cfg.badchannels{subject_idx};
-    channels = setdiff(total_channels, badchannels);
+    ignoredchannels = cfg.ignoredchannels{subject_idx};
+    channels = setdiff(total_channels, ignoredchannels);
     
     fprintf('\n<strong> > Computing ICA decomposition...</strong>\n\n');
     

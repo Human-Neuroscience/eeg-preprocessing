@@ -16,9 +16,9 @@ if cfg.interpole.flag
     subject_idx = str2double(data.subject.id(end-2:end));
     
     % Compute interpolation:
-    if ~isempty(cfg.badchannels{subject_idx})
+    if ~isempty(cfg.interpole.channels{subject_idx})
         
-        data = pop_interp(data,cfg.badchannels{subject_idx},...
+        data = pop_interp(data,cfg.interpole.channels{subject_idx},...
             cfg.interpole.metohd);
         
     end

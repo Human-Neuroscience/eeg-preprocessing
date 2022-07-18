@@ -10,7 +10,7 @@
 
 %% Path to BIDS's compatible folder:
 
-cfg.datapath = '/Volumes/DATA/eeg-pipelines';
+cfg.datapath = '/Users/David/Desktop/prueba_bids_eeg';
 
 %% 0.1 Subjects to load:
 %  By default the preprocessing script loads all the subjects containded in
@@ -19,9 +19,9 @@ cfg.datapath = '/Volumes/DATA/eeg-pipelines';
 
 cfg.subjects = {
      'sub-001';
-     'sub-002';
-     'sub-003';
-%     'sub-004';
+%      'sub-002';
+%      'sub-003';
+%      'sub-004';
 %      'sub-005';
 %      'sub-006';
 %      'sub-007';
@@ -59,11 +59,12 @@ cfg.subjects = {
 
 cfg.chantoload = []; 
 
-%% 0.3 Bad channels
-%  Identified bad channels indexes per subject:
+%% 0.3 Ignored channels
+%  Ignored channels for different data preprocesing steps (ICA & trial 
+%  rejection). e.g. Ocular channels, noisy channels, etc.
 
-cfg.badchannels = {
-    []; % sub-001
+cfg.ignoredchannels = {
+    [1 2 3]; % sub-001
     []; % sub-002
     []; % sub-003
     []; % sub-004
@@ -149,8 +150,8 @@ cfg.epochs.sdir = '03-epoched';     % Destination folder.
 
 %% 4. Independent Component Analysis (ICA):
 % This algorithm is computed ignoring the channel indexes included in
-% cfg.badchannels. This is useful to compute the ICAs ignoring bad channels
-% that will be removed later.
+% cfg.ignoredchannels. This is useful to compute the ICAs ignoring bad 
+% channels that will be removed later.
 
 cfg.ica.flag = true;            % Enable/disable ICA decomposition
 cfg.ica.method = 'runica';      % ICA algorithm to use for decomposition.
@@ -165,7 +166,7 @@ cfg.ica.sdir = '04-icaweights'; % Destination folder.
 
 cfg.ica.badcomponents.flag = true;  % Enable/dis. remove artifactual comp.
 cfg.ica.badcomponents.delete = {    % Indexes to remove per subject.
-    []; % sub-001
+    [1 2 3]; % sub-001
     []; % sub-002
     []; % sub-003
     []; % sub-004
@@ -232,10 +233,46 @@ cfg.trialrej.sdir = '06-trialpruned';   % Destination folder.
 
 %% 7. Electrodes to interpole:
 %  Cell array of electrodes to interpole for each subject must be specified
-%  in cfg.badchannels.
+%  in cfg.interpole.channels.
 
 cfg.interpole.flag = true;              % Enable/disable interpolation.
 cfg.interpole.metohd = 'spherical';     % Interpolation method.
+
+cfg.interpole.channels = {
+    [1 2 3]; % sub-001
+    []; % sub-002
+    []; % sub-003
+    []; % sub-004
+    []; % sub-005
+    []; % sub-006
+    []; % sub-007
+    []; % sub-008
+    []; % sub-009
+    []; % sub-010
+    []; % sub-011
+    []; % sub-012
+    []; % sub-013
+    []; % sub-014
+    []; % sub-015
+    []; % sub-016
+    []; % sub-017
+    []; % sub-018
+    []; % sub-019
+    []; % sub-020
+    []; % sub-021
+    []; % sub-022
+    []; % sub-023
+    []; % sub-024
+    []; % sub-025
+    []; % sub-026
+    []; % sub-027
+    []; % sub-028
+    []; % sub-029
+    []; % sub-030
+    []; % sub-031
+    []; % sub-032
+    []; % sub-033
+    };
 
 cfg.interpole.save = true;              % Save interpoled data.
 cfg.interpole.sdir = '07-interpoled';   % Destination folder.
@@ -280,7 +317,7 @@ cfg.conditions.baseline.w = [-200 0]; % Baseline boundaries in milisec.
 
 cfg.conditions.names = {              % Specify condition names to extrac.
     'manmade-new-correct-rem';
-    'manmade-new-false-for'; % ...
+    'manmade-new-false-for';  % ...
     };
 
 cfg.conditions.report = true;         % Enable/disable rejection report.
