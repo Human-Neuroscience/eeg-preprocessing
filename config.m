@@ -246,30 +246,30 @@ cfg.interpole.sdir = '07-interpoled';   % Destination folder.
 % Recover reference electrode:
 cfg.refelec.flag = true;        % Enable/disable ref. electrode recovery.
 
-cfg.refelec.chan  = 30;         % Channel number.
-cfg.refelec.label = 'POz';      % Channel label.
+cfg.refelec.chan  = 64;         % Channel number.
+cfg.refelec.label = 'FCz';      % Channel label.
 cfg.refelec.type  = 'REF';      % Channel type.
 
 % Polar coordinates:
-cfg.refelec.theta  = 180;
-cfg.refelec.radius  = 0.38; 
+cfg.refelec.theta  = 0;
+cfg.refelec.radius = 0.125; 
 
 % Cartesian coordinates:
-cfg.refelec.X  = -79;				 
-cfg.refelec.Y  = -9.68e-15;
-cfg.refelec.Z  = 31.3;
+cfg.refelec.X  = 0.38268;				 
+cfg.refelec.Y  = 0;
+cfg.refelec.Z  = 0.92388;
 
 % Spherical coordinates:
-cfg.refelec.sph_theta  = -180;
-cfg.refelec.sph_phi  = 21.6;
-cfg.refelec.sph_radius  = 85;
+cfg.refelec.sph_theta  = 0;
+cfg.refelec.sph_phi  = 67.5;
+cfg.refelec.sph_radius  = 1;
 
 % Compute data re-reference:
 cfg.reref.flag = true;          % Enable/disable data re-reference.
 cfg.reref.chan = [];            % New reference electrore - [] = average.
 
 cfg.reref.save = true;                  % Save re-referenced data.
-cfg.reref.sdir = '08-rereferenced';    % Destination folder.
+cfg.reref.sdir = '08-rereferenced';     % Destination folder.
 
 %% 9. Extract conditions:
 %  Condition to extract:
