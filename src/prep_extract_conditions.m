@@ -18,7 +18,7 @@ if cfg.conditions.flag
         
         try
             % Extract epochs
-            [data_,idx{i}] = pop_epoch(data,cfg.conditions.names(i),...
+            [data_,idx{i}] = pop_epoch(data,cfg.conditions.triggers{i},...
                 cfg.epochs.bounds);
             data_.setname = cfg.conditions.names{i};
             
@@ -39,6 +39,8 @@ if cfg.conditions.flag
         catch
             warning(['No epochs found for ' cfg.conditions.names{i}...
                 ' condition.'])
+            
+            report(1,i) = 0; 
         end
     end
 end

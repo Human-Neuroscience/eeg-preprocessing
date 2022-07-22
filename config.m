@@ -315,12 +315,38 @@ cfg.conditions.flag = true;           % Enable/disable cond. extraction.
 cfg.conditions.baseline.flag = true;  % Enable/disable baseline correction.
 cfg.conditions.baseline.w = [-200 0]; % Baseline boundaries in milisec.
 
-cfg.conditions.names = {              % Specify condition names to extrac.
-    'manmade-new-correct-rem';
-    'manmade-new-false-for';  % ...
+cfg.conditions.report = true;         % Enable/disable conditions report.
+
+% Specify condition names to extrac:
+cfg.conditions.names{1} = 'target-congruent-correct';
+cfg.conditions.names{2} = 'target-congruent-forced-correct';
+cfg.conditions.names{3} = 'target-congruent-easy-forced-correct'; % ...
+
+
+% Each condition could contain different triggers:
+
+cfg.conditions.triggers{1} = { % Triggers to extract for condition 1
+    'TARGET_CRC_FOR_C'
+    'TARGET_CLC_FOR_C'
+    'TARGET_CRI_FOR_C'
+    'TARGET_CLI_FOR_C'
+    'TARGET_CRC_VOL_C'
+    'TARGET_CLC_VOL_C'
+    'TARGET_CRI_VOL_C'
+    'TARGET_CLI_VOL_C'
     };
 
-cfg.conditions.report = true;         % Enable/disable rejection report.
+cfg.conditions.triggers{2} = { % Triggers to extract for condition 2
+    'TARGET_CRC_FOR_C'
+    'TARGET_CLC_FOR_C'
+    'TARGET_CRI_FOR_C'
+    'TARGET_CLI_FOR_C'
+    };
+
+cfg.conditions.triggers{3} = { % Triggers to extract for condition 3
+    'TARGET_CRC_FOR_C'
+    'TARGET_CLC_FOR_C'
+    };
 
 cfg.conditions.save = true;             % Save extracted conditions.
 cfg.conditions.sdir = '09-conditions';  % Destination folder.
